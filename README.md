@@ -4,6 +4,8 @@ Overlay leve de desempenho para Windows, feito para ficar no canto da tela duran
 
 Em notebooks **Avell** com o Avell Custom Control (o Control Center 3 da Uniwill), o **Ctrl+Alt+T** troca o modo de desempenho do próprio notebook (Escritório ↔ Turbo), o mesmo que o painel da Avell faz, sem precisar abri-lo durante o jogo.
 
+<p align="center"><img src="docs/widget.png" alt="Widget com FPS, CPU, GPU, RAM, VRAM, rede e ping, com os gráficos dos últimos 60 segundos ligados" width="354"></p>
+
 ## O que mostra
 
 | Linha | Origem |

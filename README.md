@@ -1,4 +1,4 @@
-# Monitor de Jogo
+# TurboHUD
 
 Overlay leve de desempenho para Windows, feito para ficar no canto da tela durante jogos: FPS e latência, CPU, GPU, RAM, VRAM, rede, ping e modo de energia. Um único arquivo C#, compilado com o `csc.exe` que já vem no Windows. Sem instalar .NET, Visual Studio ou nada além dele.
 
@@ -46,12 +46,12 @@ Como a troca do modo da Avell funciona por dentro: [docs/avell-custom-control.md
 Requisitos: Windows 10 ou 11 (64 bits). O .NET Framework 4.x já vem no Windows.
 
 ```powershell
-git clone https://github.com/hugogontijomachado/monitor-de-jogo.git
-cd monitor-de-jogo
+git clone https://github.com/hugogontijomachado/turbo-hud.git
+cd turbo-hud
 powershell -ExecutionPolicy Bypass -File instalar.ps1
 ```
 
-O `instalar.ps1` compila, copia para `%LOCALAPPDATA%\MonitorJogo` e cria o atalho **Monitor de Jogo** na Área de Trabalho. Se o widget estiver aberto, ele fecha antes de substituir. Opções:
+O `instalar.ps1` compila, copia para `%LOCALAPPDATA%\TurboHUD` e cria o atalho **TurboHUD** na Área de Trabalho. Se o widget estiver aberto, ele fecha antes de substituir. Opções:
 
 - `-PresentMon <caminho do PresentMon-x.y.z-x64.exe>`: copia o PresentMon para medir FPS. Baixe a versão de console em [PresentMon releases](https://github.com/GameTechDev/PresentMon/releases); o instalador confere a assinatura da Intel.
 - `-Inicializacao`: inicia o widget escondido junto com o Windows, para os atalhos funcionarem sempre.

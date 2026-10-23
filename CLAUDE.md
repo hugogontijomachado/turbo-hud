@@ -1,4 +1,4 @@
-# Monitor de Jogo
+# TurboHUD
 
 Overlay de desempenho para Windows (um arquivo C#) com integração ao Avell Custom Control. Uso e instalação: [README.md](README.md). Integração com a Avell: [docs/avell-custom-control.md](docs/avell-custom-control.md).
 
@@ -16,9 +16,9 @@ O dono fala português; código, comentários, textos da tela e commits em portu
 ## Testar
 
 1. `powershell -ExecutionPolicy Bypass -File instalar.ps1` (fecha o widget aberto, compila, copia). Erro de compilação aparece na saída do `csc`.
-2. Abrir: `Start-Process "$env:LOCALAPPDATA\MonitorJogo\MonitorJogo.exe"` e conferir o processo `MonitorJogo`.
+2. Abrir: `Start-Process "$env:LOCALAPPDATA\TurboHUD\TurboHUD.exe"` e conferir o processo `TurboHUD`.
 3. Atalhos: `ferramentas\atalho-widget.ps1 -Tecla T`. O T troca o modo da Avell e o plano de verdade: pedir aprovação ao dono, testar indo e voltando, e deixar como estava.
-4. Conexão com a Avell: `Get-NetTCPConnection -RemotePort 13688 -State Established` deve listar `MonitorJogo`. Para ver o que o widget manda: `ferramentas\mqtt-avell.ps1 -Topico Fan/Control` (usa outro ID, não derruba o widget).
+4. Conexão com a Avell: `Get-NetTCPConnection -RemotePort 13688 -State Established` deve listar `TurboHUD`. Para ver o que o widget manda: `ferramentas\mqtt-avell.ps1 -Topico Fan/Control` (usa outro ID, não derruba o widget).
 
 ## PowerShell 5.1
 

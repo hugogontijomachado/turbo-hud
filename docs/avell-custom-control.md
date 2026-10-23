@@ -21,7 +21,7 @@ MQTT 3.1.1 com usuário e senha. O GCUBridge só aceita IDs de cliente de uma li
 | --- | --- | --- |
 | `MyControlCenter` | fixos no GCUBridge (omitidos aqui) | **GCUService. Não usar.** |
 | `UWPClient` (e variantes UWP*) | senha definida em execução (`Service/SetPassword`) | **App da Avell. Não usar.** |
-| `OcTool` | `OcToolUser` / `OcToolPwd123` | **Widget MonitorJogo** (conexão permanente) |
+| `OcTool` | `OcToolUser` / `OcToolPwd123` | **Widget TurboHUD** (conexão permanente) |
 | `OcScanner` | `OcScannerUser` / `OcScannerPwd123` | Livre: [ferramentas/mqtt-avell.ps1](../ferramentas/mqtt-avell.ps1) usa por padrão |
 | `OpenCL` | `OpenCLUser` / `OpenCLPwd123` | Livre |
 

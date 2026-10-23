@@ -1,4 +1,4 @@
-// Monitor de Jogo: overlay leve de desempenho (CPU, GPU, RAM, VRAM, rede, ping, turbo).
+// TurboHUD: overlay leve de desempenho (CPU, GPU, RAM, VRAM, rede, ping, turbo).
 // Abrir o .exe de novo (ou Ctrl+Alt+M) mostra/esconde o overlay; escondido, ele só escuta os atalhos.
 // Argumentos: --oculto (inicia escondido), --sair (fecha a instância aberta).
 // Ctrl+Alt+N move o overlay para o próximo monitor (a escolha fica salva em tela.txt).
@@ -25,10 +25,10 @@ using System.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-[assembly: System.Reflection.AssemblyTitle("Monitor de Jogo")]
+[assembly: System.Reflection.AssemblyTitle("TurboHUD")]
 [assembly: System.Reflection.AssemblyVersion("1.0.0.0")]
 
-namespace MonitorJogo
+namespace TurboHUD
 {
     static class Program
     {
@@ -37,8 +37,8 @@ namespace MonitorJogo
         {
             bool quit = Array.IndexOf(args, "--sair") >= 0, startHidden = Array.IndexOf(args, "--oculto") >= 0;
             bool createdNew;
-            EventWaitHandle toggle = new EventWaitHandle(false, EventResetMode.AutoReset, @"Local\MonitorJogo_Toggle", out createdNew);
-            EventWaitHandle quitEvt = new EventWaitHandle(false, EventResetMode.AutoReset, @"Local\MonitorJogo_Quit");
+            EventWaitHandle toggle = new EventWaitHandle(false, EventResetMode.AutoReset, @"Local\TurboHUD_Toggle", out createdNew);
+            EventWaitHandle quitEvt = new EventWaitHandle(false, EventResetMode.AutoReset, @"Local\TurboHUD_Quit");
             if (!createdNew)
             {
                 // Já está rodando: abrir de novo mostra/esconde; --sair fecha de vez.
@@ -82,9 +82,9 @@ namespace MonitorJogo
 
         const int HotkeyNextScreen = 1, HotkeyGraphs = 2, HotkeyTurbo = 3, HotkeyShowHide = 4;
         static readonly string ScreenFile = System.IO.Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"MonitorJogo\tela.txt");
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"TurboHUD\tela.txt");
         static readonly string GraphsFile = System.IO.Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"MonitorJogo\graficos.txt");
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"TurboHUD\graficos.txt");
 
         // Últimos 60 s de cada métrica; gravados sempre, desenhados só com os gráficos ligados.
         readonly History hCpu = new History(60), hGpu = new History(60), hRam = new History(60), hVram = new History(60),
@@ -114,7 +114,7 @@ namespace MonitorJogo
             FormBorderStyle = FormBorderStyle.None;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.Manual;
-            Text = "Monitor de Jogo";
+            Text = "TurboHUD";
             d = new Sensors(pingHost);
             timer.Interval = 1000;
             timer.Tick += OnTick;
@@ -1049,7 +1049,7 @@ namespace MonitorJogo
     // Precisa de admin ou do grupo "Usuários de log de desempenho" para abrir a sessão ETW.
     sealed class FrameStats : IDisposable
     {
-        const string Session = "MonitorJogo";
+        const string Session = "TurboHUD";
 
         public double Fps, LatencyMs;
         public string Status = "", GameName = "";
